@@ -1,3 +1,5 @@
+
+--Used Microsoft Sql Server Mangement Studio
 select * 
 FROM dbo.CovidDeaths
 order by 3,4
