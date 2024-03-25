@@ -1,0 +1,36 @@
+
+-- this project was done using SQLLite and the Yelp Data set as part of a peer review exercise for week 4 of the UC Davis SQL for Data Science course offered through coursera.
+
+select name
+, category
+, is_open AS 'open = 1'
+,city ||', ' || State AS location
+,State
+,stars AS Rating
+From Business
+join category on category.business_id = business.id
+where category = 'Restaurants' And  stars IN (1,2,3,4,5) 
+AND is_open = 1 and state <> 'ON' and state <> 'BW' and state <> 'EDH'
+order by rating desc
+
+ name                                   | category    | open = 1 | location           | state | Rating |
++----------------------------------------+-------------+----------+--------------------+-------+--------+
+| Green Corner Restaurant                | Restaurants |        1 | Mesa, AZ           | AZ    |    5.0 |
+| Bootleggers Modern American Smokehouse | Restaurants |        1 | Phoenix, AZ        | AZ    |    4.0 |
+| Seoul Garden Korean Restaurant         | Restaurants |        1 | Cuyahoga Falls, OH | OH    |    4.0 |
+| Big Wong Restaurant                    | Restaurants |        1 | Las Vegas, NV      | NV    |    4.0 |
+| C's Restaurant Bakery and Coffee Shop  | Restaurants |        1 | Middleton, WI      | WI    |    4.0 |
+| Rise and Dine Cafe                     | Restaurants |        1 | Chesterland, OH    | OH    |    4.0 |
+| TWIISTED Burgers & Sushi               | Restaurants |        1 | Medina, OH         | OH    |    4.0 |
+| Taqueria Y Cenaduria Culiacan          | Restaurants |        1 | Tolleson, AZ       | AZ    |    4.0 |
+| Matt's Big Breakfast                   | Restaurants |        1 | Phoenix, AZ        | AZ    |    4.0 |
+| Cabin Club                             | Restaurants |        1 | Westlake, OH       | OH    |    4.0 |
+| Wingstop                               | Restaurants |        1 | Las Vegas, NV      | NV    |    3.0 |
+| Oinky's Pork Chop Heaven               | Restaurants |        1 | North Randall, OH  | OH    |    3.0 |
+| Gallagher's                            | Restaurants |        1 | Phoenix, AZ        | AZ    |    3.0 |
+| Mad Mex - South Hills                  | Restaurants |        1 | Pittsburgh, PA     | PA    |    3.0 |
+| Brubaker's Pub                         | Restaurants |        1 | Hudson, OH         | OH    |    3.0 |
+| Del Taco                               | Restaurants |        1 | Gilbert, AZ        | AZ    |    3.0 |
+| McDonald's                             | Restaurants |        1 | Phoenix, AZ        | AZ    |    2.0 |
+| Burger King                            | Restaurants |        1 | Mentor, OH         | OH    |    1.0 |
++----------------------------------------+-------------+----------+--------------------+-------+--------+
